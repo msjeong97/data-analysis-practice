@@ -4,7 +4,7 @@
 link: https://www.tensorflow.org/install/pip?hl=ko#macos
 ```bash
 $ pip install --upgrade pip
-$pip install --upgrade tensorflow
+$ pip install --upgrade tensorflow
 
 # check version
 $ python
