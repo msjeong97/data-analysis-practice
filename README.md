@@ -9,6 +9,7 @@ $ pyenv virtualenv 3.8.5 <virtual_env_name>
 ## 1. Install Tensorflow
 [Tensorflow Install](https://www.tensorflow.org/install/pip?hl=ko#macos)
 ```bash
+
 $ pip3 install --upgrade pip
 $ pip3 install --upgrade tensorflow
 
@@ -17,7 +18,7 @@ $ python -c "import tensorflow as tf; print(tf.version.GIT_VERSION, tf.version.V
 v2.4.0-49-g85c8b2a817f 2.4.1`
 ```
 
-## 2. Run Jupyter Notebook
+## 2. Install Jupyter Notebook
 ```bash
 $ pip3 install jupyter 
 $ jupyter notebook
@@ -46,17 +47,22 @@ To enable them in other operations, rebuild TensorFlow with the appropriate comp
 	$ pip3 install -U pip numpy wheel
 	$ pip3 install -U keras_preprocessing --no-deps
 	$ git clone https://github.com/tensorflow/tensorflow.git
-	$ brew install bazel
+	
+	#install bazel 3.7.2
+	$ export BAZEL_VERSION=3.7.2
+	$ curl -fLO "https://github.com/bazelbuild/bazel/releases/download/${BAZEL_VERSION}/bazel-${BAZEL_VERSION}-installer-darwin-x86_64.sh"
+	$ chmod +x "bazel-${BAZEL_VERSION}-installer-darwin-x86_64.sh"
+	$ ./bazel-${BAZEL_VERSION}-installer-darwin-x86_64.sh --user
+	$ bazel --version
 
 	# 사용 가능한 instruction 확인
 	$ sysctl -a | grep "machdep.cpu.*features:"
 
 	$ cd tensorflow
 	$ ./configure
-	# --config=opt 를 -march=native로 설정해준다. 나머지는 default
 	
-	$ cd "/usr/local/Cellar/bazel/4.0.0/libexec/bin" && curl -fLO https://releases.bazel.build/3.7.2/release/bazel-3.7.2-darwin-x86_64 && chmod +x bazel-3.7.2-darwin-x86_64
-	$ bazel build --config=opt //tensorflow/tools/pip_package:build_pip_package
+	# AVX2, FMA instruction을 지원하도록 빌드
+	$ bazel build -c opt --copt=-mavx2 --copt=-mfma //tensorflow/tools/pip_package:build_pip_package
 
 	$ pip install /tmp/tensorflow_pkg/tensorflow-<version>-<tags>.whl
 	
