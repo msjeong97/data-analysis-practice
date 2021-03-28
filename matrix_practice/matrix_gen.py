@@ -11,3 +11,11 @@ c = tf.add(a, b)
 d = tf.subtract(a, b) 
 
 sess = tf.Session()
+init = tf.global_variables_initializer()
+sess.run(init)
+
+c_out = sess.run(c)
+d_out = sess.run(d)
+
+print(c_out)
+print(d_out)
