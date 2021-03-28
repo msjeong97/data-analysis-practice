@@ -18,7 +18,7 @@ $ python -c "import tensorflow as tf; print(tf.version.GIT_VERSION, tf.version.V
 v2.4.0-49-g85c8b2a817f 2.4.1`
 ```
 
-## 2. Run Jupyter Notebook
+## 2. Install Jupyter Notebook
 ```bash
 $ pip3 install jupyter 
 $ jupyter notebook
