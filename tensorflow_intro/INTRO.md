@@ -8,13 +8,13 @@
 ## 2. What is tensor
 - 텐서는 하나의 배열을 의미한다.
 - 텐서는 Rank, Shape, Type 세가지의 특징을 갖는다. 
-'''python
+```python
 tensor = [
 [1, 2],
 [2, 3],
 [3, 4]
 ]
-'''
+```
 - Rank는 배영의 차원이다. 위 예제에서 Rank는 2다.
 - Shape는 배열의 모양이다. 위 예제에서 Shape는 3 * 2다.
 - Type는 텐거 값의 타입이다. 주로 float.32를 사용하며 위 예제는 int다. 
