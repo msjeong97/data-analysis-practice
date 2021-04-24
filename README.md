@@ -65,10 +65,6 @@ To enable them in other operations, rebuild TensorFlow with the appropriate comp
 	$ bazel build -c opt --copt=-mavx2 --copt=-mfma //tensorflow/tools/pip_package:build_pip_package
 
 	$ pip install /tmp/tensorflow_pkg/tensorflow-<version>-<tags>.whl
-	
-
-
-
 
 	```	 
 
