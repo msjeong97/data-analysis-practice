@@ -1,9 +1,12 @@
 import os
 import urllib.request
 import tarfile
+
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
+from sklearn.model_selection import train_test_split
+
 import time
 
 
@@ -19,7 +22,10 @@ def main():
 	# housing.hist(bins=50, figsize=(8, 6))
 	# plt.show()
 	# print(repr(housing['ocean_proximity'].value_counts()))
-	train, test = split_train_test(housing, 0.2)
+
+	# random split
+	# train, test = split_train_test(housing, 0.2)
+	train_test_split(housing, test_size=0.2, random_state=42)
 
 
 def split_train_test(data, ratio):
